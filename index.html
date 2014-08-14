@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>{{ mustache }}</title>
+
+    <!-- load jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    <!-- load mustache -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
+
+    <!-- load js script -->
+    <script src="mustache.js"></script>
+  </head>
+
+  <body>
+
+    <!-- mustache script -->
+    <script type="text/html" id="test1">
+
+      {{#users}}
+        <h2>{{name}}</h2>
+        <p>email: {{email}}</p>
+        <p>Trips: </p>
+
+        {{#trips}}   {{! this is a loop! }}
+          <ul>
+            <li>duration: {{duration}}</li>
+            <li>completed:
+              {{#completed}}  {{! this is an if! }}
+                &#x2713
+              {{/completed}}
+              {{^completed}}  {{! this is an if! }}
+                &#x2717
+              {{/completed}}
+              </li>
+          </ul>
+        {{/trips}}
+      {{/users}}
+    </script>
+
+    <!-- mustache script 2 -->
+    <script type="text/html" id="test2">
+      {{.}}
+    </script>
+
+
+  </body>
+</html>
